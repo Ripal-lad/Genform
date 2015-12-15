@@ -1,0 +1,17 @@
+﻿<!--<div ng-controller="countDownController" class="text-center" layout="column" layout-align="center center">-->
+
+
+    <div class="text-center main-div" layout="column" layout-align="center center">
+        <div ng-show="pageDetailsValue">
+            <h2><span ng-hide="isGo">Are You Ready?</span><span ng-show="isGo">Go!Go!Go!</span></h2>
+            <div class="count-down text-center">
+                {{counter}}
+            </div>
+       
+         </div>
+        <div ng-show="progressBarValue" class="linear-progressbar">
+            <md-progress-linear  md-mode="indeterminate"></md-progress-linear>
+        </div>
+    </div>
+
+ 

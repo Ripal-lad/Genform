@@ -1,0 +1,47 @@
+﻿
+<div browser-back-button-for-other-pages>
+    <section class="demo-container md-whiteframe-z1 ">
+
+        <md-toolbar class="demo-toolbar md-default-theme background-green">
+
+            <div class="md-toolbar-tools">
+                <span class="ng-binding" ng-bind="quizTitle"></span>
+            </div>
+
+        </md-toolbar>
+
+        <md-content class="md-default-theme">
+            <div layout="row">
+                <div class="p-15 main-div">
+                    <div class="content-section" ng-show="pageDetailsValue">
+                        <h2 class="header header-text">
+                            {{titleMessage}}
+                            <!--You Have Completed the Quiz-->
+                                <!--You Have Completed the Quiz-->                            
+                        </h2>
+                        <b>{{minutes}} Minutes {{seconds}} Seconds</b>
+                        <any ng-bind-html=" PageEndMessage">
+                        </any>
+                        <br /><br />
+                        There were {{selfScoringQuestionsCount}} short answer questions that you will now need to score before we can give you your final score.<br /><br />
+                        The following pages will present those questions and the answer you provided, along with a provided answer.
+                        Please carefully read your answer, and the provided answer, and then submit a fair and honest score for your answer.<br /><br />
+                        Remember, you will only derive value from this quiz by giving yourself a score that truly reflects the answer your gave.
+                        <br /><br />
+                        <hr />
+                        <div class="pt-2">
+                             <md-button class="md-raised md-primary md-button md-default-theme background-green " ng-click="continueClick()"><span class=" ng-scope">Continue </span></md-button>
+                        </div>
+                       </div>
+
+                    <div ng-show="progressBarValue" class="linear-progressbar">
+                        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                    </div>
+
+                </div>
+            </div>
+        </md-content>
+    </section>
+</div>
+
+

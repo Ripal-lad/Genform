@@ -1,0 +1,25 @@
+﻿
+
+<section class="demo-container md-whiteframe-z1 ">
+    <md-toolbar class="demo-toolbar md-default-theme background-green">
+        <div class="md-toolbar-tools">
+            <span class="ng-binding" ng-bind="quizTitle"></span>
+        </div>
+    </md-toolbar>
+    <br />
+    <md-content class="md-default-theme">
+        <div layout="row" class="main-div">
+            <div class="p-15" flex ng-show="pageDetailsValue">
+                <div>
+                    <h2 class="error text-center"> Unfortunately, this quiz is not yet available.</h2>
+                </div>
+            </div>
+        </div>
+        <div ng-show="progressBarValue" class="linear-progressbar">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+        </div>
+    </md-content>
+</section>
+
+
+

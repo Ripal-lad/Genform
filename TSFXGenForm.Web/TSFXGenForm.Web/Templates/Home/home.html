@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <!--<div>
+        <form style="padding: 5px;">
+            <h2 class="blue" style="color:#004878 ">Resources</h2>
+
+            <md-divider></md-divider>
+
+            <div ng-repeat="url in url">
+                <div ng-if="url.type == 'Resources'">
+                    <a href="{{getUrl(url.url)}}">{{url.url}}</a> 
+                </div>
+                <div ng-if="url.type == 'Quiz'">
+                    <h2 class="blue" style="color:#004878 ">Quiz</h2>
+                    <md-divider></md-divider>
+                    <a href="{{getUrl(url.url)}}">{{url.url}}</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>-->
+   <div>
+        <form style="padding: 5px;">
+            <h2 class="blue" style="color:#004878 ">Resources</h2>
+        
+            <!--<span  style="color:#008000"><h3>Link Preview</h3></span>-->
+            <!--<md-divider></md-divider>-->
+
+            <div ng-repeat="url in url">
+                <div ng-if="url.type == 'Resources'">
+                    <!--<a href="{{getUrl(url.url)}}">{{url.url}}</a>-->
+                    <a href="" ng-click="getUrl(url.url)" >{{url.url}}</a> 
+                </div>
+                <div ng-if="url.type == 'Quiz'">
+                    <h2 class="blue" style="color:#004878 ">Quiz</h2>
+                    <md-divider></md-divider>
+                    <a href="{{getUrl(url.url)}}">{{url.url}}</a>
+                </div>
+                </div>
+
+            <div ng-show="countDownTimerValue">
+                <h2><span ng-hide="isGo">Are You Ready?</span><span ng-show="isGo">Go!Go!Go!</span></h2>
+                <div class="count-down">
+                    {{counter}}
+                </div>
+            </div>
+           
+</form>
+
+    </div>
+</body>
+</html>

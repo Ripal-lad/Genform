@@ -1,0 +1,102 @@
+﻿
+<div browser-back-button-for-question-page>
+    <form name="myForm">
+        <section class=" md-whiteframe-z1">
+            <div layout="row" class="background-green green-header" layout-align="space-between center" layout-align-sm="start center" layout-sm="row">
+                <div flex="70" flex-sm="60">
+                    <h2 class="md-toolbar-tools md-pad font-s" ng-bind="quizName"></h2>
+                </div>
+                <div flex="30" flex-sm="40" class="p-15">
+                    <md-button class="md-raised blue-btn pull-right"  ng-class="{'btn-fade-out':!saveAndCompleteLaterLinkValue}" ng-click="saveAndCompleteLaterClick()"><md-icon md-svg-src="Content/images/save-complete.svg" style="color:#fff;" alt="correct"></md-icon><md-tooltip>Save & Complete Later</md-tooltip></md-button>
+                </div>
+            </div>  
+            <div layout="column" class="main-div">
+                <div ng-show="questionsValue"> 
+               
+                    <md-toolbar class="white-bg">
+                        <div layout="row" layout-sm="column" layout-align="space-between center" class="que-list">
+                            <div flex="60" flex-sm="100">
+                                <h3 class="md-toolbar-tools md-pad header-text marg-bot">
+                                    Question&nbsp;<span>{{questionNo}}&nbsp;</span>of <span> &nbsp;{{totalQuizQuestion}}</span>
+                                </h3>
+                            </div>
+                            <div flex-sm="100" class="pull-right p-15 header-text" ng-show="showTimerValue">
+                                <div>
+                                    <label>Recommended Time: <span>{{recommendedTimeMinutes}} {{recommendedMinutesString}} {{recommendedTimeSeconds}} {{recommendedSecondsString}}</span></label><br />
+                                    <timer ng-model="backGroudTimer" ng-show="false" interval="1000">{{mminutes}} minute{{minutesS}}, {{sseconds}} second{{secondsS}}</timer>
+                                </div>
+                                <div class="m-t5">
+                                    <label ng-model="timeRemaining"> Time Remaining: <span>{{timeRemainingMinutes}} {{minutesString}} {{timeRemainingSeconds}} {{secondsString}}</span></label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </md-toolbar>
+               
+                  
+                    <div layout="column" class="m-tb5 white-bg my-div p-15">
+                        <div ng-show="multipleChoiceValue">
+                            <div class="image-container">
+                                <img ng-src="{{questionImagePath}}" scaling={{solutionImageRequiredScaling}} image-scaling id="{{questionImageId}}" class="que-img" ng-style="{'display':'none'}" />
+                            </div>
+                            <div class="multiple-ans multiple-ans-height">
+                                <div ng-bind-html="writeSolutionInSpecificLocationMessage"></div>
+                                    <h3 class="header-text pad-15">Please Select 1 Answer</h3><span class="pull-right header-text" ng-show="multipleAnswerMaxmarksValue"><b>{{multipleAnswerMaxMarks}}</b></span>
+                                    <div layout="row">
+                                        <div ng-repeat="questions in shortAndMultipleChoiceAnswerQuestion">
+                                            <span ng-if="questions.questionType == 1">
+                                                <md-checkbox class="md-warn" ng-change="checkBoxChange(shortAndMultipleChoiceAnswerQuestion)" ng-model="questions.userSelectedAnswer">{{questions.userAnswer}}</md-checkbox>
+                                            </span>
+                                        </div>
+                                    </div>
+                             </div>
+
+                        </div> 
+                        <div nd-show="shortAnswerValue">
+                            <div class="descriptive-ans" ng-repeat="questions in shortAndMultipleChoiceAnswerQuestion">
+                                <div ng-if="questions.questionType == 2">
+                                    <div layout="row" layout-align="start start" indentpx="{{questions.indentPx}}" indent-questions class="plr-10">
+                                        <img ng-src="{{questions.imagePath}}" scaling={{questions.solutionImageRequiredScaling}} id="{{questions.questionImageId}}" image-scaling class="que-img" ng-style="{'display':'none'}" />
+                                    </div>
+
+                                    <div class="x-small-font" ng-bind-html=" questions.writeSolutionInSpecificLocationMessage"></div> 
+
+                                    <div layout="row" layout-align="center center">
+                                        <div flex="80" flex-sm="60"></div>
+                                        <div flex="20" flex-sm="40" class="plr-10">
+                                            <span class="pull-right header-text" ng-show="shortAnswerMaxMarksValue" ng-model="questions.shortAnswerMaxmarks"><b class="mr-5 markFont"> {{questions.shortAnswerMaxmarks}}</b></span>
+                                        </div>
+                                    </div>
+
+                                    <md-content class="plr-10">
+                                        <md-input-container>
+                                            <div id="{{questions.ckEditorId}}" indentpx="{{questions.indentPx}}" indent-questions>
+                                                <textarea ck-editor class="ck-editor" name="editor" ng-model="questions.userAnswer">{{questions.userAnswer}}</textarea>
+                                                <!--<textarea ck-editor class="ck-editor" name="editor" id.c="{{questionskEditorId}}" ng-model="questions.userAnswer"></textarea>-->
+                                            </div>
+                                        </md-input-container>
+                                    </md-content>
+                                </div>
+                            </div>
+                        </div>                                           
+                    </div>
+                </div>
+            </div>
+              
+            <div class="pad-25">
+                <hr />  
+            </div>
+                  
+                    <div class="m-tb5 pad-25 white-bg" layout="row" layout-align="end end">                       
+                        <md-button class="orange-btn md-raised nxt-prv" ng-show="previousButtonValue" ng-click="previousButton(shortAndMultipleChoiceAnswerQuestion)"><span>  <  </span>Previous</md-button>
+                        <md-button class="orange-btn md-raised nxt-prv" ng-show="nextButtonValue" ng-click="nextButton(shortAndMultipleChoiceAnswerQuestion)">Next <span>  >  </span></md-button>
+                        <md-button class="orange-btn md-raised nxt-prv save-pause" ng-show="saveAndCompleteLaterButtonValue" ng-click="saveAndCompleteLaterButtonClick(shortAndMultipleChoiceAnswerQuestion)">Save & Pause</md-button>
+                    </div>
+                <div ng-show="progressBarValue" class="linear-progressbar">
+                    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                </div>
+          
+        </section>
+    </form>
+</div>
+<!--<script src="../../Scripts/backfix.min.js"></script>-->

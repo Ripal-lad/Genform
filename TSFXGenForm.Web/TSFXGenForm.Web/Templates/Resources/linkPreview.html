@@ -1,0 +1,26 @@
+﻿<div class="xyz">
+    <section class="demo-container md-whiteframe-z1">
+        <md-toolbar class="demo-toolbar md-default-theme background-green">
+
+            <div class="md-toolbar-tools">
+                <span class="ng-binding">{{resource.Title}}</span>
+            </div>
+        </md-toolbar>
+        <div class="content-section">
+            <md-content class="md-default-theme">
+                <div layout="row" class="p-15" layout-sm="column" >
+                    <div flex="66" flex-sm="100" class="shadow-center">
+                        <img class="full-width" ng-show="imageShow" src="{{resource.ResourceLinkImagePath}}" />
+                        <span class="ng-binding md-toolbar-tools" ng-show="messageShow">{{message}}</span>
+                    </div>
+                    <div flex="33" flex-sm="100" class="pad-15">
+                        <h3>{{resource.Title}}</h3>
+                        <p>{{resource.Description}}</p>
+
+                        <a class="md-raised md-primary md-button md-default-theme background-green readmore" ng-click="readMoreButtonclick()" target="_blank"><span class="ng-scope"><i class="glyphicon glyphicon-zoom-in"></i> Read more</span></a>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+    </section>
+</div>

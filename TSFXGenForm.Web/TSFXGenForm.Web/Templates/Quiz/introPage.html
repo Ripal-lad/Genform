@@ -1,0 +1,41 @@
+﻿
+
+<section class="demo-container md-whiteframe-z1 ">
+    <div layout="row" class="background-green green-header" layout-align="space-between center" layout-align-sm="start center" layout-sm="column">
+        <h2 class="md-toolbar-tools font-s">
+            <span class="ng-binding" ng-bind="quizTitle"></span>
+        </h2>
+    </div>
+    <md-content class="md-default-theme">
+        <div layout="row" class="main-div">
+            <div class="p-15" flex>
+                <div class="content-section">
+                    <div ng-show="introPageContentvalue">
+                        <h2 class="header">
+                            <strong style="color:#004878 " ng-bind-html=" pageOpeninMessagetitle">
+                            </strong>
+                        </h2>
+                        <div ng-bind-html=" pageOpeningMessage">
+                        </div><br />
+                        <div ng-bind-html=" pageEndMessage">
+                        </div>
+                        <br />
+                        <strong ng-show="availableQuizMessageValue" style="color:red"> {{message}} </strong><br />
+                        <hr />
+                        <div class="pt-2">
+                        <md-button ng-show="buttonShow" class="md-raised md-primary md-button md-default-theme background-blue" ng-click="myQuizzes()"><span class=" ng-scope"> My Quizzes </span></md-button>
+                        <md-button ng-show="buttonShow" class="md-raised md-primary md-button md-default-theme background-green pull-right add-disable" ng-click="beginQuiz()"><span class=" ng-scope">{{beginQuizName}} </span></md-button>
+                         </div>
+                        </div>
+
+                    <div ng-show="progressBarValue" class="linear-progressbar">
+                        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</section>
+
+
+

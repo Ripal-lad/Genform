@@ -1,0 +1,37 @@
+﻿
+<div browser-back-button-for-other-pages>
+    <section class="demo-container md-whiteframe-z1 ">
+        <div layout="row" class="background-green green-header" layout-align="space-between center" layout-align-sm="start center" layout-sm="column">
+            <h2 class="md-toolbar-tools font-s">
+                <span class="ng-binding" ng-bind="quizTitle"></span>
+            </h2>
+        </div>
+        <br />
+        <md-content class="md-default-theme">
+            <div layout="row" class="main-div">
+                <div class="p-15" flex >
+                    <div>
+                        <div ng-show="pageDetails">
+                            <div style="min-height: 230px">
+                                <h2 class="header header-text">
+                                    The Time Allocated for this Quiz Has Elapsed.
+                                </h2>
+                                <div>  You may still complete this quiz, however, your official score will be based on the questions you answered correctly within the allocated time.</div><br />
+                           </div>
+                            <div>
+                                <hr />
+                                <md-button class="md-raised md-primary md-button md-default-theme background-blue add-disable" ng-click="finishQuiz()"><span class=" ng-scope"> Finish Quiz </span></md-button>
+                                <md-button class="md-raised md-primary md-button md-default-theme background-green pull-right add-disable" ng-click="viewResult()"><span class=" ng-scope">View Result </span></md-button>
+                            </div>
+                        </div>
+                        <div ng-show="progressBarValue" class="linear-progressbar">
+                            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </section>
+
+</div>
+

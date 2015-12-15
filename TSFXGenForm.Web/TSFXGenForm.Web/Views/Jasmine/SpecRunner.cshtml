@@ -1,0 +1,112 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/angular/js")
+   
+    <link rel="shortcut icon" type="image/png" href="~/Content/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="~/Content/jasmine/jasmine.css">
+  
+    <script src="~/Scripts/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script src="~/Scripts/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="~/Scripts/jasmine/lib/jasmine-core/boot.js"></script>
+ 
+    <script src="~/Scripts/angular-mocks.js"></script>
+  
+    <script src="~/app/app.js"></script>
+    <script src="~/app/controllers/indexController.js"></script>
+
+        
+    <!--Resource controllers -->
+    <script src="~/app/models/resources/resource.js"></script>
+    <script src="~/app/services/resource/resourceLinkService.js"></script>
+    <script src="~/app/controllers/resources/resourceLinkController.js"></script>
+    <script src="~/app/Test/controllers/resource/resourceLinkControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/resources/resourceLinkServiceSpec.js"></script>
+
+    <script src="~/app/services/resource/resourceNotesService.js"></script>
+    <script src="~/app/controllers/resources/resourceNotesController.js"></script>
+    <script src="~/app/Test/controllers/resource/resourceNotesControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/resources/resourceNotesServiceSpec.js"></script>    
+
+    <script src="~/app/controllers/quiz/introPageController.js"></script>
+    <script src="~/app/services/quiz/introPageSevice.js"></script>
+    <script src="~/app/controllers/quiz/questionPageController.js"></script>
+    <script src="~/app/services/quiz/questionPageService.js"></script>
+    <script src="~/app/controllers/quiz/answerDrillPageController.js"></script>
+    <script src="~/app/services/quiz/answerDrillPageService.js"></script>
+    <script src="~/app/controllers/quiz/quizManagerPageController.js"></script>
+    <script src="~/app/services/quiz/quizManagerPageService.js"></script>
+    <script src="~/app/controllers/quiz/selfScoringIntroPageController.js"></script>
+    <script src="~/app/services/quiz/selfScoringIntroPageService.js"></script>
+    <script src="~/app/controllers/quiz/selfScoringQuestionpageController.js"></script>
+    <script src="~/app/services/quiz/selfScoringQuestionPageService.js"></script>
+    <script src="~/app/controllers/quiz/resultPageController.js"></script>
+    <script src="~/app/services/quiz/resultPageService.js"></script>
+    <script src="~/app/controllers/quiz/timerExpiredPageContoroller.js"></script>
+    <script src="~/app/controllers/quiz/countDownController.js"></script>
+    <script src="~/app/controllers/quiz/savedAndPausedPageController.js"></script>
+    <script src="~/app/services/quiz/savedAndPausedPageService.js"></script>
+    <script src="~/app/controllers/quiz/endMessagePageController.js"></script>
+    <script src="~/app/services/quiz/endMessagePageService.js"></script>
+    <script src="~/app/controllers/quiz/availableQuizMessagePageController.js"></script>
+    
+    
+    <script src="~/app/directive/quiz/jWPlayerDirective.js"></script>
+
+    @* spec files *@
+  
+    <script src="~/app/Test/controllers/quiz/introPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/inroPageServiceSpec.js"></script>
+
+    <script src="~/app/Test/controllers/quiz/questionPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/questionPageServiceSpec.js"></script>
+    
+    <script src="~/app/Test/controllers/quiz/resultPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/resultPageServiceSpec.js"></script>
+    
+    <script src="~/app/Test/controllers/quiz/answerDrillPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/answerDrillPageServiceSpec.js"></script>
+   
+    <script src="~/app/Test/controllers/quiz/quizManagerPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/quizManagerPageServiceSpec.js"></script>
+
+    <script src="~/app/Test/controllers/quiz/selfScoringIntroPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/selfScoringIntroPageServiceSpec.js"></script>
+
+    <script src="~/app/Test/controllers/quiz/selfScoringQuestionPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/selfScoringQuestionPageServiceSpec.js"></script>
+   
+    <script src="~/app/Test/controllers/quiz/savedAndPausedPageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/savedAndPausedPageServiceSpec.js"></script>
+
+    <script src="~/app/Test/controllers/quiz/countDownTimerPageControllerSpec.js"></script>
+    <script src="~/app/Test/controllers/quiz/timerExpiredPageControllerSpec.js"></script>
+    <script src="~/app/Test/controllers/quiz/endMessagePageControllerSpec.js"></script>
+    <script src="~/app/Test/servicess/quiz/endMessagePageServiceSpec.js"></script>
+    <script src="~/app/Test/controllers/quiz/availableMessagePageControllerSpec.js"></script>
+    
+    <script src="~/app/Test/directive/quiz/jWPalyerDirectiveSpec.js"></script>
+    
+    
+    @* services *@
+   
+ 
+ 
+
+   
+  
+   
+   
+  
+</head>
+
+<body>
+</body>
+</html>

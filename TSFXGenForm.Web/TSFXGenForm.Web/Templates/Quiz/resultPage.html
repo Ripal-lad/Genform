@@ -1,0 +1,70 @@
+﻿<div browser-back-button-for-other-pages>
+<section class=" md-whiteframe-z1">
+    <div layout="row" class="background-green green-header" layout-align="space-between center" layout-align-sm="start center" layout-sm="column">
+        <h2 class="md-toolbar-tools font-s">
+            {{quizName}}
+        </h2>
+    </div>
+    <div class="main-div">
+        <div ng-show="resultPageDetailsValue">
+            <md-toolbar class="white-bg">
+                <div layout="row" layout-sm="column" layout-align="space-between center">
+                    <h3 class="md-toolbar-tools small-font m-l10 header-text ">{{quizName}} Results</h3>
+                </div>
+            </md-toolbar>
+            <div layout="row" class="m-tb5 white-bg" layout-padding>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td class="sm-width"></td>
+                            <td class="small-font"><strong>Your Score<br /></strong></td>
+                            <td class="small-font" ng-show="showScoreAveragesValue"><strong>State Average<br />({{attempt}} Attempt)</strong></td>
+                            <td class="small-font xs-width" ng-show="showScoreAveragesValue">
+                                <strong>Relative Rank </strong><span class="glyphicon glyphicon-info-sign blue"> <md-tooltip md-direction="bottom">The relative rank indicates where<br /> your result lies in comparison to<br /> other students. A relative rank of<br />75% means that your result was<br /> the same or better than 75% of<br /> the other scores.</md-tooltip></span>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Score</strong></td>
+                            <td><span>{{yourScoreString}}<span class="block" /> ({{yourScorePercentage}}% )</span></td>
+                            <td ng-show="showScoreAveragesValue"><span>{{stateAverageString}}{{stateAveragePercentage}}% )</span></td>
+                            <td ng-show="showScoreAveragesValue">{{relativeRank}}%</td>
+                        </tr>
+                        <tr class="first-row">
+                            <td class="small-font"><strong>Time Taken</strong></td>
+                            <td><span>{{yourScoreTimeInMinutes}}</span> Minutes <span>{{yourScoreTimeInSeconds}}</span> Seconds</td>
+                            <td ng-show="showScoreAveragesValue"><span>{{stateAverageTimeInMinutes}}</span> Minutes <span>{{stateAverageTimeInSeconds}}</span> Seconds</td>
+                            <td ng-show="showScoreAveragesValue">{{relativeRankTimeTaken}}%</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                               <div class="p-15"></div>
+                            </td>
+                        </tr>
+                        <tr class="padding-top" ng-repeat="question in questionResultDetails" ng-show="showScoreBreakDownValue">
+                            <td><strong>Question {{question.questionNumber}}</strong></td>{{timerExpiredToolTip}}
+                            <td>
+                                <span><span ng-show={{question.shortAnswerMarksValue}} ng-if="question.questionType == 2">{{question.userScoreOutOfMaxScore}}</span><span ng-show="{{question.shortAnswerQuestionTimerExpiredValue}}"><md-icon md-svg-src="Content/images/cancel-timer.svg" style="color:#F44336;" alt="cancel-tmer"></md-icon><md-tooltip ng-if="question.shortAnswerQuestionTimerExpiredValue==true">You would have received {{question.userScore}}<br />out of {{question.maxScore}} if you had answered <br />this question in time.</md-tooltip></span></span>
+                                <span><span ng-show={{question.multipleChoiceImageValue}}><!--<i class={{question.imageClass}}></i>--><md-icon ng-show={{question.correctAnswerValue}} md-svg-src="Content/images/correct.svg" style="color:#4CAF50;" alt="correct"></md-icon><md-icon md-svg-src="Content/images/wrong.svg" ng-show={{question.wrongAnswerValue}} style="color:#F44336;" alt="wrong"></md-icon></span><span ng-show="{{question.multipleChoiceTimerExpiredValue}}"><md-icon md-svg-src="Content/images/cancel-timer.svg" style="color:#F44336;" alt="cancel-timer"></md-icon></span><md-tooltip ng-if="question.multipleChoiceTimerExpiredValue == true">Timer Expired</md-tooltip></span>
+                                <a class="m-l20 no-marg blue align" href="{{answerDrillPage(question)}}">Answer</a>
+                            </td>
+                            <td ng-show="showScoreAveragesValue">{{question.questionAnsweredCorrectly}}</td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="m-tb5 p-15 white-bg" layout="row" layout-align="space-between end">
+                <md-button class="blue-bttn md-raised" ng-click="myQuizzes()">My Quizzes</md-button>
+                <md-button class="orange-btn md-raised" ng-click="beginQuiz()" ng-show="showTryAgainButton">Try Again</md-button>
+            </div>
+        </div>
+        <div ng-show="progressBarValue" class="linear-progressbar">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+        </div>
+    </div>
+</section>
+</div>

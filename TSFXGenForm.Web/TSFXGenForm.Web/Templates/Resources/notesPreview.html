@@ -1,0 +1,46 @@
+﻿
+<div>
+    <section class="demo-container md-whiteframe-z1">
+
+        <md-toolbar class="demo-toolbar md-default-theme background-green">
+            <div class="md-toolbar-tools">
+                <span class="ng-binding" ng-model="resource.ResourceTitle"> {{resourceTitle}}</span>
+            </div>
+        </md-toolbar>
+        <div class="content-section">
+            <md-content class="md-default-theme">
+                <div layout="row" layout-sm="column">
+                    <div flex="66" flex-sm="100" class="p-15">
+                        <span class="ng-binding" style="color:#004878 ">File Size: <strong>{{fileSizes}}KB</strong> | Pages: <strong>{{filePages}}</strong> (Preview Only Shows Every Third Page)</span>
+                        <div class="m-top20">
+                            <span ng-show="multipleFileButtonValue">
+                                <span ng-repeat="filedata in multipleFileData">
+                                    <md-button class="md-raised" ng-click="multipleFile(filedata)" ng-class="(filedata.count==filecountNumber ? 'newBackgroundOrange' :'')">
+                                        <b ng-class="(filedata.count==filecountNumber ? 'newBackgroundOrange' :'')" style="color:#004878">  File {{filedata.count}} </b> &nbsp; &nbsp;
+                                    </md-button>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div flex="33" flex-sm="100" class="p-15">                       
+                        <md-button class="download md-raised md-primary md-button md-default-theme background-green pull-right " id="downloadPdf" download ng-href="{{path}}" ng-click="downloadFile(downloadPath)"><span class=" ng-scope"><i class="glyphicon glyphicon-download-alt"></i> DOWNLOAD </span></md-button>
+                    </div>
+                </div>
+                <hr>
+             <div class="notesScroll">
+                <div ng-repeat="path in svgFileContentArray">                    
+                    <img src={{path.svgFilePath}}>
+                    <hr class="pageBreak" >
+                </div>
+            </div>
+              
+
+                <div ng-show="progerssBarShow" class="linear-progressbar">
+                    <md-progress-linear class="pos-top" md-mode="indeterminate"></md-progress-linear>
+                </div>
+            </md-content>
+        </div>
+    </section>
+
+</div>
+

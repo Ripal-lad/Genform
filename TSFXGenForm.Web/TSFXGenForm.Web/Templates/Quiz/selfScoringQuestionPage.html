@@ -1,0 +1,83 @@
+﻿
+<div browser-back-button-for-other-pages>
+    <section class=" md-whiteframe-z1 self-scoring">
+        <form name="myForm">
+            <div layout="row" class="background-green green-header" layout-align="space-between center">
+                <div>
+                    <h2 class="md-toolbar-tools font-s" ng-bind="quizName">  </h2>
+                </div>
+            </div>
+            <md-toolbar class="white-bg">
+                <div layout="column" class="que-list" layout-margin layout-fill layout-padding>
+                    <h3 class="md-toolbar-tools small-font header-text">
+                        <span> Please Mark Your Answer to Question&nbsp;<span>{{questionNo}}&nbsp;</span>Using the Marking Scheme Below</span>
+                    </h3>
+                </div>
+            </md-toolbar>
+            <div class="main-div">
+                <div ng-show="questionsValue">
+                    <div>
+                        <div ng-repeat="questions in shortAndMultipleChoiceAnswerQuestion"  ng-class="($index > 0 ? 'shadow-line' :'')" > 
+                            <div ng-class='{pForfirstDiv:$first}'>
+                                <div layout="row" class="white-bg img-bg my-div">
+                                    <div class=" que-img-container" indentpx="{{questions.indentPx}}" indent-questions>
+
+                                        <img ng-src="{{questions.questionImagePath}}" scaling={{questions.solutionImageRequiredScaling}} image-scaling class="que-img" id="{{questions.questionImageId}}" style="display:none" />
+                                    </div>
+                                </div>
+                            <div layout="column" layout-margin layout-fill layout-padding>
+                                <div ng-bind-html="questions.writeSolutionInSpecificLocationMessage"></div>
+
+                                <!--<h3 class="font-color small-font">
+                Answer provided
+            </h3>-->
+                                <div indentpx="{{questions.indentPx}}" indent-questions>
+                                    <textarea ck-editor class="ck-editor" name="editor" id="editor1">{{questions.userAnswer}}</textarea>
+                                </div>
+                            </div>
+                            <div layout="column" layout-margin layout-fill layout-padding class="my-div"  indentpx="{{questions.indentPx}}" indent-questions>
+                                    <h3 class="font-color small-font">
+                                        Suggested Solution
+                                    </h3>
+                                    <div class="ans-imgae-container" ng-show="questions.solutionImageValue">
+
+                                        <img ng-src="{{questions.solutionImagePath}}" scaling={{questions.solutionImageRequiredScaling}} image-scaling class="ans-img" id="{{questions.solutionImageId}}" style="display:none" />
+                                    </div>
+                                    <!-- Bind JWPlayer to show Audio and video -->
+                                    <div ng-show="questions.audioVideoValue" data-ng-repeat="player in questions.audioVideoArray">
+
+                                        <div class="videoPlayer" id={{player.index}} j-w-player-directive resourcetitle={{player.solutionResourceTitle}} url={{player.path}}></div>
+                                        <br />
+                                    </div>
+                                </div>
+                            <h3 class="m-tb5 p-r15 no-pad white-bg x-small-font" layout="row" layout-align="end end">
+                                Mark Your Answer
+                            </h3>
+
+
+
+                            <div class="m-tb5 pad-15 no-pad white-bg pos-relative" layout="row" layout-align="end end">
+                                <md-select placeholder="Select" id={{questions.scoreId}} ng-change="markSelectionChangeEvent(shortAndMultipleChoiceAnswerQuestion)" ng-model="questions.score" required>
+                                    <md-option value="{{marks.mark}}" data-ng-repeat="marks in questions.maxArray">{{marks.mark}}</md-option>
+                                </md-select>   <span class="spanselect"> / {{questions.maxScore}} marks</span>
+
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="progressBarValue" class="linear-progressbar">
+                    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                </div>
+            </div>
+            <div class="pad-15">
+            <hr />
+             </div>
+            <div class="m-tb5 pad-15 white-bg" layout="row" layout-align="end end">
+                <md-button class="orange-btn md-raised nxt-prv" ng-show="previousButtonValue" ng-click="previousButton(shortAndMultipleChoiceAnswerQuestion)"><span>  <  </span>Previous</md-button>
+                <md-button type="submit" class="orange-btn md-raised nxt-prv" ng-click="nextButton(shortAndMultipleChoiceAnswerQuestion)">Next <span>  >  </span></md-button>
+            </div>
+        </form>
+    </section>
+</div>

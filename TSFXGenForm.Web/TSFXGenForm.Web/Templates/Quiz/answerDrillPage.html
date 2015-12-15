@@ -1,0 +1,121 @@
+﻿
+<div browser-back-button-for-other-pages>
+    <section class=" md-whiteframe-z1 answer-drill">
+        <div layout="row" class="background-green green-header" layout-align="space-between center">
+            <div>
+                <h2 class="md-toolbar-tools font-s" ng-bind="quizName">  </h2>
+            </div>
+        </div>
+
+        <md-toolbar class="white-bg">
+
+            <div layout="column" layout-sm="row" class="que-list" layout-margin layout-fill layout-padding>
+                <h3 class="md-toolbar-tools header-text" flex-sm="40">
+                    Question&nbsp;<span>{{questionNo}}&nbsp;</span>of <span> &nbsp;{{totalQuizQuestion}}</span>
+                </h3>
+                <div flex-sm="50">
+                    <label class="m-l15 header-text"><strong>Score Given: </strong><span ng-show="scoreGivenValue"><span>{{userScore}}</span> out of <span>{{maxScore}}</span></span></label>
+                    <span ng-show="timerExpiredValue"><md-icon md-svg-src="Content/images/cancel-timer.svg" style="color:#F44336;" alt="cancel-tmer"></md-icon><md-tooltip><span ng-show="shortAnswerToolTip">You would have received {{userScoreToolTip}}<br />out of {{maxScoreToolTip}} if you had answered <br />this question in time.</span><span ng-show="multipleChoiceToolTip">Timer Expired</span></md-tooltip></span>
+                    <span ng-show="notAttemptedQuestionImage"><md-icon md-svg-src="Content/images/wrong.svg" style="color:#F44336;" alt="wrong"></md-icon></span>
+                </div>
+            </div>
+        </md-toolbar>
+      
+       
+        
+        <!-- Bind Short anwer details. -->
+        <div layout="column" layout-margin layout-fill  ng-show="shortAnswerValue">
+
+            <div ng-repeat="questions in shortAndMultipleChoiceAnswerQuestion" ng-class="($index > 0 ? 'shadow-line' :'')" >
+               
+                <div layout="row" class="m-tb5 white-bg img-bg my-div" layout-margin layout-fill indentpx="{{questions.indentPx}}" indent-questions>
+
+                    <div class="p-15 image-container que-img-container">
+                        <img ng-src="{{questions.questionImagePath}}" scaling={{questions.solutionImageRequiredScaling}} image-scaling class="que-img" id="{{questions.questionImageId}}" style="display:none" />
+                    </div>
+                </div>
+
+                <div layout="column" layout-margin layout-fill layout-padding class="p-15">
+                    <div ng-bind-html="questions.writeSolutionInSpecificLocationMessage"></div>
+                    <!--<h3 class="font-color small-font">
+                        Answer provided
+                    </h3>-->
+                    <div indentpx="{{questions.indentPx}}" indent-questions>
+                        <textarea ck-editor class="ck-editor">{{questions.userAnswer}}</textarea>
+                    </div>
+                </div>
+
+
+                <div layout="column" layout-margin layout-fill layout-padding class="my-div p-15" indentpx="{{questions.indentPx}}" indent-questions>
+                    <h3 class="font-color small-font">
+                        Suggested Solution
+                    </h3>
+                    <div class="ans-imgae-container" ng-show="questions.solutionImageValue">
+
+                        <img ng-src="{{questions.solutionImagePath}}" scaling={{questions.solutionImageRequiredScaling}} image-scaling class="ans-img" id="{{questions.solutionImageId}}" style="display:none" />
+                    </div>
+
+
+                    <!-- Bind JWPlayer to show Audio and video -->
+                    <div ng-show="questions.audioVideoValue" data-ng-repeat="player in questions.audioVideoArray">
+
+                        <div class="videoPlayer" id={{player.index}} j-w-player-directive resourcetitle={{player.solutionResourceTitle}} url={{player.path}}></div>
+                        <div id='searchbar'></div>
+                        <div id='transcript'></div>
+
+                        <br />
+                    </div>
+                </div>
+
+               
+
+            </div>
+         
+           
+
+        </div>
+        
+        
+        <!-- Bind multiple choice questions. -->
+        <div class="multiple-ans" layout-margin layout-fill layout-padding ng-show="multipleChoiceValue">
+            
+            <div layout="row" class="m-tb5 white-bg" layout-margin layout-fill layout-padding>
+                <div class="image-container my-div">
+                    <img src="{{questionImagePath}}" scaling={{solutionImageRequiredScaling}} image-scaling class="que-img" id="{{questionImageId}}" style="display:none" />
+                </div>
+            </div>
+            <div ng-bind-html="writeSolutionInSpecificLocationMessage"></div>
+            <h3 class="font-color">Selected options </h3>
+            <div layout="row">
+                <div ng-repeat="questions in multipleChoiceAnswerQuestion">
+                    <span ng-if="questions.questionType == 1">
+                        <md-checkbox class="md-warn" ng-disabled="true" ng-checked="questions.userSelectedAnswer">{{questions.userAnswer}}</md-checkbox>
+                    </span>
+                </div>
+            </div>
+            
+            <div layout="column" layout-margin layout-fill layout-padding class="my-div">
+                <h3 class="font-color">
+                    Suggested Solution
+                </h3>
+                <div ng-show="solutionImageValue" class="ans-imgae-container">
+                    <img src="{{solutionImagePath}}" scaling={{solutionImageRequiredScaling}} id="{{solutionImageId}}" class="que-img" image-scaling style="display:none" />
+                </div>
+             
+                <div ng-show="audioVideoValue" ng-repeat="player in jwPlayerArray">
+                    <div id={{player.index}} j-w-player-directive resourcetitle={{player.solutionResourceTitle}} url={{player.path}} ng-model="player.path"></div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="pad-15">
+            <hr />
+        </div>
+      
+      
+        <div class="m-tb5 pad-15 white-bg" layout="row" layout-align="end end">
+            <md-button class="orange-btn md-raised nxt-prv" ng-click="resultPage()">Results</md-button>
+        </div>
+
+    </section>
+</div>

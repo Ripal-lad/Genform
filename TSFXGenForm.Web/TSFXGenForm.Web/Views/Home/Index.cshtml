@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GenForm</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/angular/js")
+    @Scripts.Render("~/Genform/js")
+
+    @*<link href="~/Scripts/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />*@
+    @*<link href="~/Scripts/angular-material/angular-material.css" rel="stylesheet" />*@
+    @*<link href="~/Content/style.css" rel="stylesheet" />*@
+</head>
+<body ng-app="app">
+    <div class="body-container" data-ng-controller="indexController" layout="column" layout-fill>
+        @*<md-toolbar md-scroll-shrink class="background-blue">
+            <div class="md-toolbar-tools">*@
+                @*<md-button ng-click="toggleLeft()" class="md-primary">
+                        Toggle right
+                    </md-button>*@
+                @*<h3><span>TSFX Genform</span></h3>
+            </div>
+        </md-toolbar>*@
+        @*<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+                <md-toolbar class="md-theme-indigo">
+                    <h1 class="md-toolbar-tools">Sidenav Left</h1>
+                </md-toolbar>
+                <md-content class="md-padding">
+                    <p hide-md show-gt-md>
+                        This sidenav is locked open on your device. To go back to the default behavior,
+                        narrow your display.
+                    </p>
+                </md-content>
+            </md-sidenav>*@
+
+        @*<img class="full-width" src="file:///D:\Projects\TSFX Genform\Genform\Source\tsfxresources\wmbhwquq\thumb_1_750x750.jpg" />
+            <img class="full-width" src="file:///server08\Common\Genform\tsfxresources\wmbhwquq\thumb_1_750x750.jpg" />*@
+        <md-content style="height: 100%;">
+            <div class="container main-container" data-ng-view></div>
+        </md-content>
+
+    </div>
+    @*<script src="~/Scripts/hammerjs/hammer.js"></script>
+    <script src="~/Scripts/angular/angular.js"></script>
+    <script src="~/Scripts/angular-animate/angular-animate.js"></script>
+    <script src="~/Scripts/angular-aria/angular-aria.js"></script>
+    <script src="~/Scripts/angular-resource/angular-resource.js"></script>
+    <script src="~/Scripts/angular-route/angular-route.js"></script>
+    <script src="~/Scripts/angular-material/angular-material.js"></script>*@
+   
+    @*<script src="~/app/app.js"></script>
+    <script src="~/app/controllers/indexController.js"></script>
+    <script src="~/app/controllers/Home/homeController.js"></script>
+
+   @*Controllers*@
+    @*<script src="~/app/controllers/Home/homeController.js"></script>
+    <script src="~/app/controllers/Resources/resourceLinkController.js"></script>
+    <script src="~/app/controllers/Resources/resourceNotesController.js"></script>*@
+   
+    @*Services*@
+    @*<script src="~/app/Service/Resources/resourceLinkService.js"></script>
+    <script src="~/app/Service/Resources/resourceNotesService.js"></script>*@
+
+    
+</body>
+</html>

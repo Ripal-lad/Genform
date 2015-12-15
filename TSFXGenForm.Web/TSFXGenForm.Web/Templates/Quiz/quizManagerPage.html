@@ -1,0 +1,53 @@
+﻿
+<div browser-back-button-for-other-pages>
+    <section class=" md-whiteframe-z1">
+        <div layout="row" class="background-green green-header" layout-align="space-between center" layout-align-sm="start center" layout-sm="column">
+            <h2 class="md-toolbar-tools font-s">
+                My Quizzes
+            </h2>
+        </div>
+        <div layout="row" class="m-tb5 white-bg  pad-15"><h3 class="no-marg header-text"> {{quizManagerHeader}}</h3></div>
+        <div class="main-div">
+            <div layout="row" class="m-tb5 white-bg" layout-padding ng-show="quizManageDetailValue">
+                <table class="table" border="0">
+                    <thead>
+                        <tr>
+                            <td class="small-font"><strong>Quiz Title</strong></td>
+                            <td class="small-font"><strong>Due Date</strong></td>
+                            <td class="small-font"><strong ng-show="relativeRankAndScoreLable">Results</strong></td>
+                            <td class="small-font"><strong ng-show="relativeRankAndScoreLable">Score</strong></td>
+                            <td class="small-font"><strong ng-show="relativeRankAndScoreLable">Relative Rank </strong><span ng-show="relativeRankAndScoreLable" class="glyphicon glyphicon-info-sign blue"><md-tooltip md-direction="bottom">The relative rank indicates where<br /> your result lies in comparison to<br /> other students. A relative rank of<br />75% means that your result was<br /> the same or better than 75% of<br /> the other scores.</md-tooltip><!--</span>--></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="quizDetails in quizManagerDetials">
+                            <td>
+                                <span ng-show="quizNameLink" class="blue pointer text-underline" ng-click="beginQuiz(quizDetails)">{{quizDetails.quizName}}</span>
+                                <span ng-show="quizName">{{quizDetails.quizName}}</span>
+                            </td>
+                            <td><span>{{quizDetails.dueDate}}</span></td>
+                            <td><span class="blue pointer text-underline" ng-click="resultClick(quizDetails)">{{quizDetails.endDate}}</span></td>
+                            <!--<td><a class="blue" href={{quizDetails.routePath}} ng-click="resultClick(quizDetails)">{{quizDetails.endDate}}</a></td>-->
+                            <td><sp
+                            <td><span ng-show="{{quizDetails.relativeAndScoreValue}}">{{quizDetails.score}}</span></td>
+                            <td><span ng-show="{{quizDetails.relativeAndScoreValue}}">{{quizDetails.relativeRank}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div ng-show="progressBarValue" class="linear-progressbar">
+                <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+            </div>
+        </div>
+        <hr />
+        <div class="column" layout-align="space-between center" ng-show="footerValue" layout-margin layout-fill layout-padding>
+            <h2 class="font-s blue">
+                My Quiz Results
+            </h2>
+            <div>
+                You have not Completed any Quizzes
+            </div>
+        </div>
+    </section>
+</div>
